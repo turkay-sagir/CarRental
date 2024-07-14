@@ -17,18 +17,12 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Patterns\CQRS\Commands\LocationCommands\" />
-    <Folder Include="Patterns\CQRS\Handlers\LocationHandlers\" />
-    <Folder Include="Patterns\CQRS\Queries\LocationQueries\" />
-    <Folder Include="Patterns\CQRS\Results\LocationResults\" />
-    <Folder Include="Patterns\Mediator\Commands\" />
-    <Folder Include="Patterns\Mediator\Handlers\" />
-    <Folder Include="Patterns\Mediator\Results\" />
-    <Folder Include="Patterns\Mediator\Queries\" />
     <Folder Include="ViewComponents\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="MediatR" Version="12.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.31" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.31">
       <PrivateAssets>all</PrivateAssets>
