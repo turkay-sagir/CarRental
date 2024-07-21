@@ -13,6 +13,15 @@
     <None Include="wwwroot\carrentals-master\images\.DS_Store" />
     <None Include="wwwroot\carrentals-master\scss\.DS_Store" />
     <None Include="wwwroot\carrentals-master\scss\bootstrap\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\css\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\css\bootstrap\mixins\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\fonts\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\images\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\js\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\scss\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\scss\bootstrap\.DS_Store" />
   </ItemGroup>
 
   <ItemGroup>
