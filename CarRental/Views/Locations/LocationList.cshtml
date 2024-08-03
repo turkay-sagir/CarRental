@@ -1,0 +1,46 @@
+﻿@model List<GetLocationQueryResult>
+@{
+    ViewData["Title"] = "LocationList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <h2>Lokasyon Listesi</h2>
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th>Lokasyon Adı</th>
+            <th>Lokasyon Durumu</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            string state="";
+            string value = "";
+
+            if(item.Status==true)
+            {
+                state = "bg-success";
+                value = "Aktif";
+            }
+            else
+            {
+                state = "bg-dark";
+                value = "Pasif";
+            }
+
+
+            <tr>
+                <td>@item.LocationId</td>
+                <td>@item.LocationName</td>
+                <td><a href="/Locations/ChangeLocationStatus/@item.LocationId"><span class="badge @state" style="color:lemonchiffon; font-size:16px">@value</span></a></td>
+                <td><a href="/Locations/RemoveLocation/@item.LocationId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Locations/UpdateLocation/@item.LocationId" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Locations/CreateLocation/" class="btn btn-info">Yeni Lokasyon Ekle</a>
+</div>
+

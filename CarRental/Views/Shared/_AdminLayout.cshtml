@@ -1,0 +1,18 @@
+﻿<!doctype html>
+<html lang="en">
+@await Component.InvokeAsync("_AdminHeadComponentPartial")
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+        @await Component.InvokeAsync("_AdminSidebarComponentPartial")
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+
+        @RenderBody()
+      </div>
+		</div>
+
+	@await Component.InvokeAsync("_AdminScriptComponentPartial")
+  </body>
+</html>

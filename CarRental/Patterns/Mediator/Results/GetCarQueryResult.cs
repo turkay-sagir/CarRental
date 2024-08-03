@@ -20,7 +20,7 @@
         public bool HasLaneAssist { get; set; }
         public bool HasParkingSensors { get; set; }
         public bool Status { get; set; }
-        public int LocationId { get; set; }
-        public int BrandId { get; set; }
+        public string LocationName { get; set; }
+        public string BrandName { get; set; }
     }
 }

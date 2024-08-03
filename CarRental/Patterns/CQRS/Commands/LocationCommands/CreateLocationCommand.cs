@@ -2,8 +2,7 @@
 {
     public class CreateLocationCommand
     {
-        public string PickupLocationName { get; set; }
-        public string DropOffLocationName { get; set; }
+        public string LocationName { get; set; }
         public bool Status { get; set; }
     }
 }

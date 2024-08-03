@@ -18,8 +18,7 @@ namespace CarRental.Patterns.CQRS.Handlers.LocationHandlers
             return _context.Locations.Select(x=>new GetLocationQueryResult
             {
                 LocationId = x.LocationId,
-                DropOffLocationName = x.DropOffLocationName,
-                PickupLocationName = x.PickupLocationName,
+                LocationName = x.LocationName,
                 Status = x.Status
             }).ToList();
         }

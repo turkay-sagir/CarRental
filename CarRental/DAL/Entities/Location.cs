@@ -3,12 +3,11 @@
     public class Location
     {
         public int LocationId { get; set; }
-        public string PickupLocationName { get; set; }
-        public string DropOffLocationName { get; set; }
+        public string LocationName { get; set; }
         public bool Status { get; set; }
         public List<Car> Cars { get; set; }
-        public List<CarRent> PickUpCarRents { get; set; } = new List<CarRent>();
-        public List<CarRent> DropOffCarRents { get; set; } = new List<CarRent>();
+        public List<CarRent> PickUpRentals { get; set; }
+        public List<CarRent> DropOffRentals { get; set; }
 
     }
 }

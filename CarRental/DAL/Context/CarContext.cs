@@ -17,35 +17,16 @@ namespace CarRental.DAL.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
-            modelBuilder.Entity<Car>()
-                .HasOne(c => c.Location)
-                .WithMany(l => l.Cars)
-                .HasForeignKey(c => c.LocationId);
-
-
-            modelBuilder.Entity<Car>()
-                .HasOne(c => c.Brand)
-                .WithMany(b => b.Cars)
-                .HasForeignKey(c => c.BrandId);
-
-
-            modelBuilder.Entity<CarRent>()
-                .HasOne(cr => cr.Car)
-                .WithMany(c => c.CarRents)
-                .HasForeignKey(cr => cr.CarId);
-
-
             modelBuilder.Entity<CarRent>()
                 .HasOne(cr => cr.PickUpLocation)
-                .WithMany(l => l.PickUpCarRents)
+                .WithMany(l => l.PickUpRentals)
                 .HasForeignKey(cr => cr.PickUpLocationId)
                 .OnDelete(DeleteBehavior.Restrict);
 
 
             modelBuilder.Entity<CarRent>()
                 .HasOne(cr => cr.DropOffLocation)
-                .WithMany(l => l.DropOffCarRents)
+                .WithMany(l => l.DropOffRentals)
                 .HasForeignKey(cr => cr.DropOffLocationId)
                 .OnDelete(DeleteBehavior.Restrict);
         }

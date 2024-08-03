@@ -11,14 +11,16 @@ namespace CarRental.Patterns.Mediator.Handlers
         private readonly CarContext _context;
         private readonly IMapper _mapper;
 
-        public CreateCarCommandHandler(CarContext context)
+        public CreateCarCommandHandler(CarContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task Handle(CreateCarCommand request, CancellationToken cancellationToken)
         {
             var value = _mapper.Map<Car>(request);
+            value.Status = true;
             await _context.Cars.AddAsync(value);
             await _context.SaveChangesAsync();
         }

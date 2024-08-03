@@ -17,9 +17,8 @@ namespace CarRental.Patterns.CQRS.Handlers.LocationHandlers
         {
             _context.Locations.Add(new Location
             {
-                PickupLocationName = command.PickupLocationName,
-                DropOffLocationName = command.DropOffLocationName,
-                Status = command.Status
+                LocationName = command.LocationName,
+                Status = true
             });
             _context.SaveChanges();
         }

@@ -15,12 +15,9 @@ namespace CarRental.Patterns.CQRS.Handlers.LocationHandlers
 
         public void Handle(UpdateLocationCommand command)
         {
-            _context.Locations.Update(new Location
-            {
-                PickupLocationName = command.PickupLocationName,
-                DropOffLocationName = command.DropOffLocationName,
-                Status = command.Status
-            });
+            var value = _context.Locations.Find(command.LocationId);
+            value.LocationName = command.LocationName;
+            value.Status = command.Status;
             _context.SaveChanges();
         }
 

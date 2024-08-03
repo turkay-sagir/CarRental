@@ -1,0 +1,19 @@
+﻿@model CreateLocationCommand
+@{
+    ViewData["Title"] = "CreateLocation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Lokasyon Ekleme Paneli</h2>
+
+<form method="post">
+    <div class="row">
+        <br /><br />
+        <label>Lokasyon Adı</label>
+        <input type="text" asp-for="LocationName" class="form-control" />
+        <br /><br />
+
+        <button class="btn btn-info">Lokasyon Ekle</button>
+    </div>
+</form>
+

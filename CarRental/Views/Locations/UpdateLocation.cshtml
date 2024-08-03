@@ -1,0 +1,23 @@
+﻿@model GetLocationByIdQueryResult
+@{
+    ViewData["Title"] = "UpdateLocation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Lokasyon Güncelleme Paneli</h2>
+
+<form method="post">
+    <div class="row">
+
+        <label>Lokasyon Id</label>
+        <input type="text" asp-for="LocationId" readonly class="form-control" />
+        <br /><br />
+
+        <label>Lokasyon Adı</label>
+        <input type="text" asp-for="LocationName" class="form-control" />
+        <br /><br />
+
+        <button class="btn btn-info">Lokasyon Güncelle</button>
+    </div>
+</form>
+

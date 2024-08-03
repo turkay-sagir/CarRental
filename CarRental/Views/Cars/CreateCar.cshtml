@@ -1,0 +1,116 @@
+﻿@model CreateCarCommand
+@{
+    ViewData["Title"] = "CreateCar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Araç Ekleme Paneli</h2>
+
+<form method="post">
+    <div class="row">
+        <br /><br />
+
+        <div class="col-12 form-group">
+            <label>Araç Markası</label>
+            @Html.DropDownListFor(x => x.BrandId, (SelectList)ViewBag.brandList, "Marka Seçiniz...", new { @class = "form-control" })
+        </div>
+        <div class="col-12 form-group">
+            <label for="model">Araç Modeli</label>
+            <input type="text" class="form-control" id="model" asp-for="Model" />
+        </div>
+
+        <div class="col-12 form-group">
+            <label for="location">Lokasyon</label>
+            @Html.DropDownListFor(x => x.LocationId, (SelectList)ViewBag.locationList, "Lokasyon Seçiniz...", new { @class = "form-control" })
+        </div>
+
+        <div class="col-12 form-group">
+            <label for="year">Yıl Bilgisi</label>
+            <input type="number" class="form-control" id="year" asp-for="Year" />
+        </div>
+        <div class="col-12 form-group">
+            <label for="color">Renk Bilgisi</label>
+            <input type="text" class="form-control" id="color" asp-for="Color" />
+        </div>
+        <div class="col-12 form-group">
+            <label for="mileage">Kilometre</label>
+            <input type="number" class="form-control" id="mileage" asp-for="Mileage" />
+        </div>
+        <div class="col-12 form-group">
+            <label for="fuel">Yakıt Türü</label>
+            <input type="text" class="form-control" id="fuel" asp-for="EngineType" />
+        </div>
+        <div class="col-12 form-group">
+            <label for="horse">Beygir Gücü</label>
+            <input type="number" class="form-control" id="horse" asp-for="Horsepower" />
+        </div>
+        <div class="col-12 form-group">
+            <label for="transmission">Şanzıman Türü</label>
+            <input type="text" class="form-control" id="transmission" asp-for="Transmission" />
+        </div>
+        <div class="col-12 form-group">
+            <label for="airbags">Hava Yastığı Sayısı</label>
+            <input type="number" class="form-control" id="airbags" asp-for="NumberOfAirbags" />
+        </div>
+        <div class="col-12 form-group">
+            <label class="checkbox-inline">
+                <input type="checkbox" id="aircondition" name="HasAirConditioning" value="true"
+                @(Model.HasAirConditioning ? "checked" : "") />
+                Klima
+            </label>
+        </div>
+        <div class="col-12 form-group">
+            <label class="checkbox-inline">
+                <input type="checkbox" id="gps" name="HasGPS" value="true"
+                @(Model.HasGPS ? "checked" : "") />
+                GPS
+            </label>
+        </div>
+        <div class="col-12 form-group">
+            <label class="checkbox-inline">
+                <input type="checkbox" id="sunroof" name="HasSunroof" value="true"
+                @(Model.HasSunroof ? "checked" : "") />
+                Sunroof
+            </label>
+        </div>
+        <div class="col-12 form-group">
+            <label class="checkbox-inline">
+                <input type="checkbox" id="bluetooth" name="HasBluetooth" value="true"
+                @(Model.HasBluetooth ? "checked" : "") />
+                Bluetooth
+            </label>
+        </div>
+        <div class="col-12 form-group">
+            <label class="checkbox-inline">
+                <input type="checkbox" id="backupcamera" name="HasBackupCamera" value="true"
+                @(Model.HasBackupCamera ? "checked" : "") />
+                Geri Görüş Kamerası
+            </label>
+        </div>
+        <div class="col-12 form-group">
+            <label class="checkbox-inline">
+                <input type="checkbox" id="abs" name="HasABS" value="true"
+                @(Model.HasABS ? "checked" : "") />
+                ABS
+            </label>
+        </div>
+        <div class="col-12 form-group">
+            <label class="checkbox-inline">
+                <input type="checkbox" id="laneassist" name="HasLaneAssist" value="true"
+                @(Model.HasLaneAssist ? "checked" : "") />
+                Şerit Takip Sistemi
+            </label>
+        </div>
+        <div class="col-12 form-group">
+            <label class="checkbox-inline">
+                <input type="checkbox" id="parkingsensors" name="HasParkingSensors" value="true"
+                @(Model.HasParkingSensors ? "checked" : "") />
+                Park Sensörleri
+            </label>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-info">Araç Ekle</button>
+        </div>
+    </div>
+</form>

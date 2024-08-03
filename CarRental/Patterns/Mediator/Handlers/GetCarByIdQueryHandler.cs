@@ -10,9 +10,10 @@ namespace CarRental.Patterns.Mediator.Handlers
     {
         private readonly CarContext _context;
         private readonly IMapper _mapper;
-        public GetCarByIdQueryHandler(CarContext context)
+        public GetCarByIdQueryHandler(CarContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<GetCarByIdQueryResult> Handle(GetCarByIdQuery request, CancellationToken cancellationToken)

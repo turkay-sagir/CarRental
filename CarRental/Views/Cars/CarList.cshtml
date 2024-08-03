@@ -1,0 +1,51 @@
+﻿@model List<GetCarQueryResult>
+@{
+    ViewData["Title"] = "CarList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <h2>Araç Listesi</h2>
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th>Model</th>
+            <th>Marka</th>
+            <th>Lokasyon</th>
+            <th>Durum</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            string state = "";
+            string value = "";
+
+            if (item.Status == true)
+            {
+                state = "bg-success";
+                value = "Aktif";
+            }
+            else
+            {
+                state = "bg-dark";
+                value = "Pasif";
+            }
+
+
+            <tr>
+                <td>@item.CarId</td>
+                <td>@item.Model</td>
+                <td>@item.BrandName</td>
+                <td>@item.LocationName</td>
+                <td><a href="/Cars/ChangeCarStatus/@item.CarId"><span class="badge @state" style="color:lemonchiffon;font-size:16px">@value</span></a></td>
+                <td><a href="/Cars/RemoveCar/@item.CarId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Cars/UpdateCar/@item.CarId" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Cars/CreateCar" class="btn btn-info">Yeni Araç Ekle</a>
+</div>
+
+

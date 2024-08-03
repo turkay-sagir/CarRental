@@ -15,10 +15,8 @@ namespace CarRental.Patterns.CQRS.Handlers.BrandHandlers
 
         public void Handle(UpdateBrandCommand command)
         {
-            _context.Brands.Update(new Brand
-            {
-                BrandName = command.BrandName,
-            });
+            var value = _context.Brands.Find(command.BrandId);
+            value.BrandName = command.BrandName;
             _context.SaveChanges(); 
         }
     }
