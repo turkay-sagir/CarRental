@@ -1,0 +1,65 @@
+﻿@using CarRental.DAL.Entities
+@model SearchCarViewModel
+
+
+<form class="trip-form" method="post" asp-action="SearchCar" asp-controller="Default">
+
+    <div class="container">
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <div class="form-control-wrap">
+                    <select id="" class="custom-select form-control" asp-for="BrandId">
+                        <option value="">Araç Markası</option>
+                        @foreach (var item in (List<Brand>)ViewBag.Brands)
+                        {
+                            <option value="@item.BrandId">@item.BrandName</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3 col-md-4">
+                <div class="form-control-wrap">
+                    <input type="text" id="cf-2" placeholder="Alış Tarihi" class="form-control datepicker px-3" asp-for="PickUpDate">
+                    <span class="icon icon-date_range"></span>
+                </div>
+            </div>
+            <div class="mb-3 col-md-4">
+                <div class="form-control-wrap">
+                    <input type="text" id="cf-3" placeholder="Teslim Tarihi" class="form-control datepicker px-3" asp-for="DropOffDate">
+                    <span class="icon icon-date_range"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <div class="form-control-wrap">
+                    <div class="form-control-wrap">
+                        <select id="" class="custom-select form-control" asp-for="PickUpLocationId">
+                            <option value="">Alış Lokasyonu</option>
+                            @foreach (var item in (List<Location>)ViewBag.Locations)
+                            {
+                                <option value="@item.LocationId">@item.LocationName</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 col-md-4">
+                <div class="form-control-wrap">
+                    <div class="form-control-wrap">
+                        <select id="" class="custom-select form-control" asp-for="DropOffLocationId">
+                            <option value="">Teslim Lokasyonu</option>
+                            @foreach (var item in (List<Location>)ViewBag.Locations)
+                            {
+                                <option value="@item.LocationId">@item.LocationName</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 col-md-4">
+                <button class="btn btn-primary btn-block py-3">Araç Bul</button>
+            </div>
+        </div>
+    </div>
+</form>

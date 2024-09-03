@@ -4,48 +4,72 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="row">
-    <h2>Araç Listesi</h2>
-    <table class="table table-hover">
-        <tr>
-            <th>#</th>
-            <th>Model</th>
-            <th>Marka</th>
-            <th>Lokasyon</th>
-            <th>Durum</th>
-            <th>Sil</th>
-            <th>Güncelle</th>
-        </tr>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Araç Listesi</h2>
+            <table id="tbl1" class="table table-bordered">
+                <thead>
+                    <tr class="table table-secondary">
+                        <th>#</th>
+                        <th>Model</th>
+                        <th>Marka</th>
+                        <th>Lokasyon</th>
+                        <th>Fotoğraf</th>
+                        <th>Durum</th>
+                        <th>Sil</th>
+                        <th>Güncelle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        string state = "";
+                        string value = "";
 
-        @foreach (var item in Model)
-        {
-            string state = "";
-            string value = "";
-
-            if (item.Status == true)
-            {
-                state = "bg-success";
-                value = "Aktif";
-            }
-            else
-            {
-                state = "bg-dark";
-                value = "Pasif";
-            }
+                        if (item.Status == true)
+                        {
+                            state = "bg-success";
+                            value = "Aktif";
+                        }
+                        else
+                        {
+                            state = "bg-dark";
+                            value = "Pasif";
+                        }
 
 
-            <tr>
-                <td>@item.CarId</td>
-                <td>@item.Model</td>
-                <td>@item.BrandName</td>
-                <td>@item.LocationName</td>
-                <td><a href="/Cars/ChangeCarStatus/@item.CarId"><span class="badge @state" style="color:lemonchiffon;font-size:16px">@value</span></a></td>
-                <td><a href="/Cars/RemoveCar/@item.CarId" class="btn btn-danger">Sil</a></td>
-                <td><a href="/Cars/UpdateCar/@item.CarId" class="btn btn-success">Güncelle</a></td>
-            </tr>
-        }
-    </table>
-    <a href="/Cars/CreateCar" class="btn btn-info">Yeni Araç Ekle</a>
+                        <tr>
+                            <td>@item.CarId</td>
+                            <td>@item.Model</td>
+                            <td>@item.BrandName</td>
+                            <td>@item.LocationName</td>
+                            <td><img src="@item.ImageUrl" alt="@item.ImageUrl" width="250" height="150" class="img-thumbnail" /></td>
+                            <td><a href="/Cars/ChangeCarStatus/@item.CarId"><span class="badge @state" style="color:lemonchiffon;font-size:16px">@value</span></a></td>
+                            <td><a href="/Cars/RemoveCar/@item.CarId" class="btn btn-danger">Sil</a></td>
+                            <td><a href="/Cars/UpdateCar/@item.CarId" class="btn btn-success">Güncelle</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="/Cars/CreateCar" class="btn btn-info">Yeni Araç Ekle</a>
+
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/2.1.4/js/dataTables.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/2.1.4/js/dataTables.bootstrap4.js"></script>
+
+            <link href="https://cdn.datatables.net/2.0.1/css/dataTables.bootstrap5.css" rel="stylesheet" />
+
+            <script>
+                $('#tbl1').DataTable({
+                    language: {
+                        url: "//cdn.datatables.net/plug-ins/1.10.20/i18n/Turkish.json"
+                    }
+                });
+            </script>
+
+        </div>
+    </div>
 </div>
-
-

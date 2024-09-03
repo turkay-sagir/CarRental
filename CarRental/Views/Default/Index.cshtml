@@ -1,0 +1,81 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+
+@await Component.InvokeAsync("_DefaultHeadComponentPartial")
+
+<body>
+
+
+    <div class="site-wrap" id="home-section">
+
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+
+
+        @await Component.InvokeAsync("_DefaultNavbarComponentPartial")
+
+
+        <div class="hero" style="background-image: url('/carrentals-master/images/hero_1_a.jpg');">
+
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-10">
+
+                        <div class="row mb-5">
+                            <div class="col-lg-7 intro">
+                                <h1><strong>Ucuz araç kiralamak</strong> sadece bir tık ötede.</h1>
+                            </div>
+                        </div>
+
+                        @await Component.InvokeAsync("_DefaultCarFilterComponentPartial")
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 text-center order-lg-2">
+                        <div class="img-wrap-1 mb-5">
+                            <img src="/carrentals-master/images/feature_01.png" alt="Image" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ml-auto order-lg-1">
+                        <h3 class="mb-4 section-heading"><strong>Araba kiralamanın en kolay yolu.</strong></h3>
+                        <p class="mb-5">İstediğin modelde arabaya her yerden rahatça ulaş. Üstelik en uygun fiyatlarla ve ödeme kolaylığıyla.</p>
+
+                        <p><a href="#" class="btn btn-primary">Şimdi Kirala</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @await Component.InvokeAsync("_DefaultFeaturesComponentPartial")
+
+        @await Component.InvokeAsync("_DefaultTestimonialsComponentPartial")
+
+        @await Component.InvokeAsync("_DefaultFooterComponentPartial")
+
+    </div>
+
+    @await Component.InvokeAsync("_DefaultScriptComponentPartial")
+
+</body>
+
+</html>
+

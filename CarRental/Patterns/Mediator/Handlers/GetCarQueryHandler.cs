@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CarRental.DAL.Context;
+using CarRental.DAL.Entities;
 using CarRental.Patterns.Mediator.Queries;
 using CarRental.Patterns.Mediator.Results;
 using MediatR;
@@ -16,10 +17,13 @@ namespace CarRental.Patterns.Mediator.Handlers
             _context = context;
         }
 
-        public async Task<List<GetCarQueryResult>> Handle(GetCarQuery request, CancellationToken cancellationToken)
+        public async  Task<List<GetCarQueryResult>> Handle(GetCarQuery request, CancellationToken cancellationToken)
         {
+
             return await _context.Cars.Select(x=>new GetCarQueryResult
             {
+                ImageUrl = x.ImageUrl,
+                Price = x.Price,
                 BrandName = x.Brand.BrandName,
                 CarId = x.CarId,
                 Color = x.Color,

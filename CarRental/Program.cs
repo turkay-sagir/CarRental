@@ -1,6 +1,10 @@
 using CarRental.DAL.Context;
+using CarRental.DAL.Entities;
 using CarRental.Patterns.CQRS.Handlers.BrandHandlers;
 using CarRental.Patterns.CQRS.Handlers.LocationHandlers;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using NuGet.Protocol;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,6 +33,22 @@ builder.Services.AddMediatR(cfg=>cfg.RegisterServicesFromAssembly(Assembly.GetEx
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
+builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<CarContext>();
+
+builder.Services.AddMvc(config =>
+{
+    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    config.Filters.Add(new AuthorizeFilter(policy));
+});
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+    options.AccessDeniedPath = "/ErrorPages/Error401";
+    options.LoginPath = "/Login/Index";
+
+});
 
 builder.Services.AddControllersWithViews();
 
@@ -48,6 +68,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllerRoute(
     name: "default",
