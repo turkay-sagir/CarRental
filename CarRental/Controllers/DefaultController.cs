@@ -1,12 +1,14 @@
 ﻿using CarRental.Models;
 using CarRental.Patterns.Mediator.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using System.Globalization;
 
 namespace CarRental.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         private readonly IMediator _mediator;
